@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Patua+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>ToDo List</title>
+</head>
+    <body>
+        <!-- if data is in the data variable it displays an another h1 and the tasks -->
+        <% if(locals.data) { %>
+            <h1>Your ToDo's</h1>
+            <!-- include form -->
+            <%- include("partials/form.ejs") %>
+            <% data.forEach(task => { %>
+                <p><%= task.id%> - <%= task.val %><input type="checkbox" id="checkTask"></p>
+            <% }); %>
+            <!-- some code here -->
+            <% } else { %>
+                <h1>Add ToDo's now!</h1>
+                <%- include("partials/form.ejs") %>
+                <% } %>
+                <!-- inclide footer -->
+                <%- include("partials/footer.ejs") %>
+    </body>
+</html>
